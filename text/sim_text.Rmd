@@ -1,0 +1,7 @@
+### Simulated Data
+
+Did you know that shoe size explains people’s income? Just kidding! The connection between shoe size and income is a classic example of a *confounding variable* - because it’s actually the participant’s sex that explains the relationship.
+
+Before we explore this effect in more detail, let’s take a look at the data. The app uses simulated data because it’s much easier (and clearer!) to use simulated data when learning about causality. By simulating data, we can define the causal structure of the variables ourselves. We decide that X affects Y and not the other way around.
+
+On the right, you can inspect a small part of the simulated dataset. For example, we generate 1000 observations with 50 percent male and 50 percent female participants. Then, we define the distribution of the income variable (e.g., mean income and standard deviation). Finally, we assign higher incomes (and larger shoe sizes) to male participants, which allows us to simulate the effect of a confounding variable.

@@ -1,0 +1,7 @@
+### The Mediator
+
+Can you explain why X and Y are correlated? What is the theoretical explanation behind it? Maybe X increases Z, which in turn leads to an increase in Y. In that case, a third variable explains the connection between X and Y—and we call this variable a *mediator*. Mediation means that we are opening the black box: we can outline *why* higher values of X go hand in hand with higher values of Y.
+
+Importantly, mediation does **not** mean that the correlation between X and Y is spurious. On the contrary, including the mediator in the analysis can give us a deeper theoretical understanding of the relationship. It allows us to examine whether the effect of X on Y is partly explained by this third variable. But what if we want to estimate the *true* effect of X on Y? Should we control for the mediator?
+
+If we do, we’ll probably find that the effect of X on Y is reduced—because part of the effect now runs through the mediator. However, be careful: if your goal is to estimate the total effect of X on Y, then **do not control for the mediator**. Otherwise, you risk underestimating the effect you're actually trying to measure.

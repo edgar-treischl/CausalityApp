@@ -1,0 +1,48 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+# CausalityApp
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+
+Welcome to the **Causality App**, an interactive tool designed to help users understand and explore causal relationships between variables. This app is particularly useful for students, researchers, and practitioners in social sciences, epidemiology, economics, and other fields where discerning causality from correlation is essential.
+
+## Overview
+
+Understanding causal relationships is fundamental in many research domains. This app provides a hands-on experience to learn about three key concepts in causal inference:
+
+- **Confounders:**  
+  Variables that influence both the cause and the effect, potentially creating misleading correlations. Properly controlling for confounders is necessary to uncover true causal effects.
+
+- **Mediators:**  
+  Variables that explain the mechanism through which a cause affects an outcome. Studying mediators provides deeper insight into *how* and *why* causal effects occur.
+
+- **Colliders:**  
+  Variables influenced by both the cause and the effect. Conditioning on colliders can introduce false associations, so it is important to be cautious when including them in analysis.
+
+## Features
+
+- Interactive visualizations demonstrating the impact of confounders, mediators, and colliders on causal inference.
+- Simulations and data exploration to build intuition around causal concepts.
+- Modular design with clear UI and server components for easy extension and maintenance.
+
+## 🌐 Visit the App
+
+You can view the app on my [my website](http://edgar-treischl.de/projects) or run via:
+
+```{r, eval=FALSE}
+library(shiny)
+runGitHub("CausalityApp", "edgar-treischl", ref="main")
+```
