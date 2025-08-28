@@ -6,7 +6,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 # Install system libraries needed for typical R packages
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    tcl tk \
+    xvfb tcl tk \
     libcurl4-openssl-dev \
     libssl-dev \
     libxml2-dev \
@@ -27,7 +27,9 @@ WORKDIR /app
 COPY . /app
 
 # Install renv and restore package environment (if using renv)
-RUN R -e "install.packages('renv', repos = 'https://cloud.r-project.org'); renv::restore(confirm = FALSE)"
+RUN xvfb-run R -e "install.packages('renv', repos = 'https://cloud.r-project.org'); renv::restore(confirm = FALSE)"
+
+#RUN R -e "install.packages('renv', repos = 'https://cloud.r-project.org'); renv::restore(confirm = FALSE)"
 
 # Switch to shiny user (already exists in rocker/shiny image)
 USER shiny
