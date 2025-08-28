@@ -6,6 +6,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 # Install system libraries needed for typical R packages
 RUN apt-get update && apt-get install -y --no-install-recommends \
+    tcl tk \
     libcurl4-openssl-dev \
     libssl-dev \
     libxml2-dev \
