@@ -1,10 +1,10 @@
-# Use a lightweight R base image
-FROM rocker/r-ver:4.4
+# Use rocker/shiny as base because it includes R and Shiny
+FROM rocker/shiny:4.4.1
 
 # Avoid interactive prompts during install
 ENV DEBIAN_FRONTEND=noninteractive
 
-# Install system libraries required by common R packages
+# Install system libraries needed for typical R packages
 RUN apt-get update && apt-get install -y --no-install-recommends \
     libcurl4-openssl-dev \
     libssl-dev \
@@ -18,19 +18,17 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # Set working directory inside the container
 WORKDIR /app
 
-# Copy everything into the container (app.R, renv.lock, etc.)
+# Copy your Shiny app files into the container
 COPY . /app
 
-# Install renv and restore package environment
+# Install renv and restore package environment (if using renv)
 RUN R -e "install.packages('renv', repos = 'https://cloud.r-project.org'); renv::restore(confirm = FALSE)"
 
-# Optional: create a non-root user (for security best practice)
-RUN useradd -m -s /bin/bash shiny && \
-    chown -R shiny:shiny /app
+# Switch to shiny user (already exists in rocker/shiny image)
 USER shiny
 
-# Expose the default Shiny port
+# Expose default Shiny port
 EXPOSE 3838
 
-# Run the app directly using shiny::runApp
+# Run the app using shiny::runApp, binding to all interfaces so ShinyProxy can access it
 CMD ["R", "-e", "shiny::runApp('/app', host = '0.0.0.0', port = 3838)"]
