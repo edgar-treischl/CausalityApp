@@ -1,3 +1,10 @@
+partial_r2 <- function(reduced_model, full_model) {
+  rss_reduced <- sum(residuals(reduced_model)^2)
+  rss_full <- sum(residuals(full_model)^2)
+  (rss_reduced - rss_full) / rss_reduced
+}
+
+
 
 shoesizeUI <- function(id) {
   tagList(
@@ -56,7 +63,8 @@ shoesizeServer <- function(id) {
         
       lm.with<-stats::lm(income~schoesize + sex, data=df_confounder)
       lm.without<-stats::update(lm.with, ~. - schoesize)
-      r_update <- round(asbio::partial.R2(lm.without,lm.with), 2)
+      #r_update <- round(asbio::partial.R2(lm.without,lm.with), 2)
+      r_update <- round(partial_r2(lm.without, lm.with), 2)
       
       
       if (input$boolmethod == TRUE) {
