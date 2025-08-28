@@ -23,7 +23,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 WORKDIR /app
 
 # Copy your Shiny app files into the container
-COPY . /app
+#COPY . /app
+COPY . /srv/shiny-server/
 
 # Install renv and restore package environment (if using renv)
 RUN R -e "install.packages(c('renv', 'markdown'), repos = 'https://cloud.r-project.org'); renv::restore(confirm = FALSE)"
