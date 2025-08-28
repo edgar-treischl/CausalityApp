@@ -33,7 +33,8 @@ RUN R -e "install.packages(c('renv', 'markdown'), repos = 'https://cloud.r-proje
 
 # Switch to shiny user (already exists in rocker/shiny image)
 RUN chown -R shiny:shiny /srv/shiny-server/causalapp
-USER shiny
+
+#USER shiny
 
 # Expose the Shiny Server port
 EXPOSE 3838
