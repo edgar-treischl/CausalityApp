@@ -20,7 +20,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 
 # Set working directory inside the container
-WORKDIR /app
+#WORKDIR /app
+WORKDIR /srv/shiny-server
 
 # Copy your Shiny app files into the container
 #COPY . /app
