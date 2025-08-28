@@ -21,16 +21,18 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 # Set working directory inside the container
 #WORKDIR /app
-WORKDIR /srv/shiny-server
+RUN mkdir -p /srv/shiny-server/causalapp
+WORKDIR /srv/shiny-server/causalapp
 
 # Copy your Shiny app files into the container
 #COPY . /app
-COPY . /srv/shiny-server/
+COPY . /srv/shiny-server/causalapp
 
 # Install renv and restore package environment (if using renv)
 RUN R -e "install.packages(c('renv', 'markdown'), repos = 'https://cloud.r-project.org'); renv::restore(confirm = FALSE)"
 
 # Switch to shiny user (already exists in rocker/shiny image)
+RUN chown -R shiny:shiny /srv/shiny-server/causalapp
 USER shiny
 
 # Expose the Shiny Server port
