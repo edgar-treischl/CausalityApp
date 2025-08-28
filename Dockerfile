@@ -12,8 +12,12 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libpng-dev \
     libjpeg-dev \
     libxt-dev \
+    libv8-dev \
+    libgit2-dev \
+    git \
     pandoc \
     && rm -rf /var/lib/apt/lists/*
+
 
 # Set working directory inside the container
 WORKDIR /app
