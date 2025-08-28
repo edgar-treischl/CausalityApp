@@ -26,7 +26,7 @@ WORKDIR /app
 COPY . /app
 
 # Install renv and restore package environment (if using renv)
-RUN R -e "install.packages('renv', repos = 'https://cloud.r-project.org'); renv::restore(confirm = FALSE)"
+RUN R -e "install.packages(c('renv', 'markdown'), repos = 'https://cloud.r-project.org'); renv::restore(confirm = FALSE)"
 
 # Switch to shiny user (already exists in rocker/shiny image)
 USER shiny
