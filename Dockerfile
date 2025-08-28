@@ -33,8 +33,7 @@ RUN R -e "install.packages(c('renv', 'markdown'), repos = 'https://cloud.r-proje
 # Switch to shiny user (already exists in rocker/shiny image)
 USER shiny
 
-# Expose default Shiny port
+# Expose the Shiny Server port
 EXPOSE 3838
 
-# Run the app using shiny::runApp, binding to all interfaces so ShinyProxy can access it
-CMD ["R", "-e", "shiny::runApp('/app', host = '0.0.0.0', port = 3838)"]
+# DO NOT add a CMD — let rocker/shiny's entrypoint handle it
