@@ -21,7 +21,7 @@ if [ -z "$R_FILES" ]; then
   exit 1
 fi
 
-# Clean existing deploy folder
+# Clean existing deploy folder and recreate
 rm -rf "$DEPLOY_DIR"
 mkdir -p "$DEPLOY_DIR"
 
@@ -31,10 +31,17 @@ cp app.R "$DEPLOY_DIR"
 # Copy all R scripts from R/ to deploy root
 cp R/*.R "$DEPLOY_DIR"
 
+# Copy renv.lock if present
+if [ -f "renv.lock" ]; then
+  cp renv.lock "$DEPLOY_DIR"
+else
+  echo "⚠️ Warning: renv.lock not found, skipping"
+fi
+
 # Copy www assets (optional)
 if [ -d "www" ]; then
   mkdir -p "$DEPLOY_DIR/www"
   cp -r www/* "$DEPLOY_DIR/www/"
 fi
 
-echo "Deployment folder prepared at $DEPLOY_DIR"
+echo "✅ Deployment folder prepared at $DEPLOY_DIR"
