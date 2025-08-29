@@ -21,6 +21,9 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+        
+      - name: Make prepare-deploy.sh executable
+        run: chmod +x prepare-deploy.sh
 
       - name: Prepare deployment folder
         run: ./prepare-deploy.sh
