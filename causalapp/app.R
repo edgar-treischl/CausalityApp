@@ -1,6 +1,16 @@
 library(shiny)
 library(patchwork)
 
+source("causalapp/00_scatter_plot.R")
+source("causalapp/01_intro.R")
+source("causalapp/02_shoesize_plot.R")
+source("causalapp/03_mediator_plot.R")
+source("causalapp/04_collider_plot.R")
+source("causalapp/05_summary.R")
+source("causalapp/utils.R")
+
+
+
 ui <- fixedPage(
   theme = bslib::bs_theme(bootswatch = "journal"),
   #theme = material,
