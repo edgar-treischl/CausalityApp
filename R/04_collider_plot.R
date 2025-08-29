@@ -7,11 +7,11 @@ colliderplotUI <- function(id) {
   tagList(
     fixedRow(
       column(width = 6,
-             includeMarkdown("text/collider_txt.Rmd"),
+             includeMarkdown("www/text/collider_txt.Rmd"),
                           h4("You must not include a collider, but you can do so to see the consequence!"),
              checkboxInput(NS(id, "boolcollider"), "Include Collider", 
                            value = FALSE),
-             includeMarkdown("text/collider2_txt.Rmd")
+             includeMarkdown("www/text/collider2_txt.Rmd")
              ),
       column(width = 6,
              tabsetPanel(

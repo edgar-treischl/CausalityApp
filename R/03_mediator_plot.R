@@ -7,7 +7,7 @@ mediatorplotUI <- function(id) {
   tagList(
     fixedRow(
       column(width = 6,
-             includeMarkdown("text/mediator_text.Rmd"),
+             includeMarkdown("www/text/mediator_text.Rmd"),
              h4("To include the mediator:"),
              checkboxInput(NS(id, "boolmediator"), "Mediator included", 
                            value = FALSE),

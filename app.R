@@ -1,13 +1,28 @@
 library(shiny)
 library(patchwork)
 
-source("00_scatter_plot.R")
-source("01_intro.R")
-source("02_shoesize_plot.R")
-source("03_mediator_plot.R")
-source("04_collider_plot.R")
-source("05_summary.R")
-source("utils.R")
+get_script_path <- function(filename) {
+  if (file.exists(file.path("R", filename))) {
+    file.path("R", filename)  # Development mode
+  } else {
+    filename  # Deployment (flat structure)
+  }
+}
+
+
+
+modules <- c(
+  "00_scatter_plot.R",
+  "01_intro.R",
+  "02_shoesize_plot.R",
+  "03_mediator_plot.R",
+  "04_collider_plot.R",
+  "05_summary.R",
+  "utils.R"
+)
+
+lapply(modules, function(f) source(get_script_path(f)))
+
 
 
 

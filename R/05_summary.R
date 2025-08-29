@@ -4,7 +4,7 @@ summaryUI <- function(id) {
     fluidRow(
       column(
         width = 6,
-        includeMarkdown("text/intro.Rmd")
+        includeMarkdown("www/text/intro.Rmd")
       ),
       column(
         width = 6,
@@ -19,7 +19,7 @@ summaryUI <- function(id) {
             tags$a(href = "https://xkcd.com/552/", "https://xkcd.com", target = "_blank", rel = "noopener noreferrer")
           )
         ),
-        includeMarkdown("text/intro2.Rmd")
+        includeMarkdown("www/text/intro2.Rmd")
       )
     )
   )

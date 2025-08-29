@@ -4,7 +4,7 @@ introUI <- function(id) {
     fixedRow(
       column(
         width = 6,
-        includeMarkdown("text/sim_text.Rmd")
+        includeMarkdown("www/text/sim_text.Rmd")
       ),
       column(
         width = 6,

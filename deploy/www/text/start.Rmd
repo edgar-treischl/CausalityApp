@@ -1,0 +1,8 @@
+### Causal Inference
+
+Causal inference is an important topic in the social sciences, and maybe you’ve already learned that *correlation does not imply causation*. As the scatter plot on the right side shows, there might be a strong association between X and Y, but this does not necessarily mean that X causes Y. A common cause may induce a correlation between them.
+
+In such cases, we talk about a *confounding variable* - a third variable that influences both X and Y. Once we control for this confounder, the correlation between X and Y may disappear or change substantially. Controlling for confounders is a standard approach in the social sciences, and this dashboard illustrates why it's essential if we want to estimate the true effect of X on Y.
+
+However, the same logic does **not** apply to *mediator* and *collider* variables. In fact, controlling for a collider can induce a correlation between X and Y that wouldn't otherwise exist. This may sound abstract or vague now, but as you interact with the dashboard, it will become much clearer.
+

@@ -4,7 +4,7 @@ scatterplotUI <- function(id) {
     fixedRow(
       column(
         width = 6,
-        includeMarkdown("text/start.Rmd")
+        includeMarkdown("www/text/start.Rmd")
       ),
       column(
         width = 6,

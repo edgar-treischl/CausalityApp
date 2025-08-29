@@ -1,0 +1,4 @@
+
+Using simulated data, you can adjust parameters and instantly see how relationships between variables change. This hands-on approach clarifies why simply observing correlations is not enough to conclude causality. So, dive in, experiment with the models, and see causal theory come to life!
+
+[The source code of this app is available on my github account.](https://github.com/edgar-treischl/CausalityApp)

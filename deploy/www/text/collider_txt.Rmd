@@ -1,0 +1,7 @@
+### The Collider
+
+Things get a bit more complicated when it comes to *collider* variables. In this case, both X and Y affect the collider—but the reverse is not true. The collider does **not** influence X or Y. Take a look at the *bivariate scatter plots* on the left to see this more clearly.
+
+It's important to think carefully about whether a variable is truly a confounder or actually a collider. You should **not** control for a collider, because doing so can create a *false association* between X and Y—one that doesn't exist in reality. 
+
+As shown in the plot on the left, X appears to have a significant effect on Y—but only *after* we include the collider in the analysis. Without controlling for the collider, that association disappears.

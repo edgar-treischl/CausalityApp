@@ -10,11 +10,11 @@ shoesizeUI <- function(id) {
   tagList(
     fixedRow(
       column(width = 6,
-             includeMarkdown("text/shoes.Rmd"),
+             includeMarkdown("www/text/shoes.Rmd"),
              h4("Control for Sex:"),
              checkboxInput(NS(id, "boolmethod"), "Sex controlled.", 
                            value = FALSE),
-             includeMarkdown("text/shoes2.Rmd")
+             includeMarkdown("www/text/shoes2.Rmd")
       ),
       column(width = 6,
              tabsetPanel(

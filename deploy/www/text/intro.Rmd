@@ -1,0 +1,13 @@
+## Summary
+
+Welcome to the **Causal Inference App**! Understanding causal relationships is key in social sciences and many other fields. This app helps you explore how variables can be related — but not always causally. Here, you will learn about three important concepts:
+
+
+**Confounders:** Variables that influence both the cause and the effect, potentially creating misleading correlations. Controlling for confounders helps reveal the true causal effect.
+
+**Mediators:** Variables that explain the mechanism through which a cause affects an outcome. Including mediators gives deeper insight into how and why effects occur.
+
+**Colliders:** Variables influenced by both the cause and the effect. Controlling for colliders can create false associations, so be careful when including them in your analysis.
+
+
+
