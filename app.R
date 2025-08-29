@@ -2,7 +2,7 @@ library(shiny)
 library(patchwork)
 
 
-#Source depending on environment
+#Source depending on ...
 get_script_path <- function(filename) {
   if (file.exists(file.path("R", filename))) {
     file.path("R", filename)  # Development mode

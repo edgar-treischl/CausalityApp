@@ -21,7 +21,7 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-        
+
       - name: Make prepare-deploy.sh executable
         run: chmod +x prepare-deploy.sh
 
@@ -38,6 +38,7 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
-          context: ./deploy
+          context: .
+          file: Dockerfile
           push: true
           tags: ghcr.io/${{ github.repository_owner }}/causalityapp:latest
