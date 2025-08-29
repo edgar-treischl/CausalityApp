@@ -1,13 +1,13 @@
 library(shiny)
 library(patchwork)
 
-source("causalapp/00_scatter_plot.R")
-source("causalapp/01_intro.R")
-source("causalapp/02_shoesize_plot.R")
-source("causalapp/03_mediator_plot.R")
-source("causalapp/04_collider_plot.R")
-source("causalapp/05_summary.R")
-source("causalapp/utils.R")
+source("00_scatter_plot.R")
+source("01_intro.R")
+source("02_shoesize_plot.R")
+source("03_mediator_plot.R")
+source("04_collider_plot.R")
+source("05_summary.R")
+source("utils.R")
 
 
 
