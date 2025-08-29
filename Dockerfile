@@ -19,8 +19,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 
-
-COPY causalapp /app
+COPY app.R /app
+COPY R /app
 COPY renv.lock /app/renv.lock
 COPY text /app/text
 
