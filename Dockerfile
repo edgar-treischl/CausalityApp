@@ -18,12 +18,12 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
     pandoc \
     && rm -rf /var/lib/apt/lists/*
 
-# Install shiny and any other R packages your app requires
-RUN R -e "install.packages(c('shiny', 'renv', 'markdown'), repos='https://cloud.r-project.org')"
-
 # Set working directory and copy app files
 WORKDIR /app
 COPY . /app
+
+# Install shiny and any other R packages your app requires
+RUN R -e "install.packages(c('shiny', 'renv', 'markdown'), repos='https://cloud.r-project.org')"
 
 # If you use renv for package management, restore packages
 RUN R -e "renv::restore(confirm = FALSE)" || true
