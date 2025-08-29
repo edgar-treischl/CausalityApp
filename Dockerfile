@@ -1,11 +1,11 @@
-# Use rocker/shiny as base because it includes R and Shiny
-FROM rocker/shiny:4.4.1
+# Use the official R base image (like openanalytics/r-ver) to avoid shiny-server
+FROM openanalytics/r-ver:4.3.3
 
-# Avoid interactive prompts during install
-ENV DEBIAN_FRONTEND=noninteractive
+# Set Shiny app port and host (to allow connections from outside)
+RUN echo "\noptions(shiny.port=3838, shiny.host='0.0.0.0')" >> /usr/local/lib/R/etc/Rprofile.site
 
-# Install system libraries needed for typical R packages
-RUN apt-get update && apt-get install -y --no-install-recommends \
+# Install system dependencies (add any your app needs)
+RUN apt-get update && apt-get install --no-install-recommends -y \
     libcurl4-openssl-dev \
     libssl-dev \
     libxml2-dev \
@@ -18,26 +18,19 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     pandoc \
     && rm -rf /var/lib/apt/lists/*
 
+# Install shiny and any other R packages your app requires
+RUN R -e "install.packages(c('shiny', 'renv', 'markdown'), repos='https://cloud.r-project.org')"
 
-# Set working directory inside the container
-#WORKDIR /app
-RUN mkdir -p /srv/shiny-server/causalapp
-WORKDIR /srv/shiny-server/causalapp
+# Set working directory and copy app files
+WORKDIR /app
+COPY . /app
 
-# Copy your Shiny app files into the container
-#COPY . /app
-COPY . /srv/shiny-server/causalapp
-COPY shiny-server.conf /etc/shiny-server/shiny-server.conf
+# If you use renv for package management, restore packages
+RUN R -e "renv::restore(confirm = FALSE)" || true
 
-# Install renv and restore package environment (if using renv)
-RUN R -e "install.packages(c('renv', 'markdown'), repos = 'https://cloud.r-project.org'); renv::restore(confirm = FALSE)"
-
-# Switch to shiny user (already exists in rocker/shiny image)
-RUN chown -R shiny:shiny /srv/shiny-server/causalapp
-
-#USER shiny
-
-# Expose the Shiny Server port
+# Expose port 3838 for shiny app
 EXPOSE 3838
 
-# DO NOT add a CMD — let rocker/shiny's entrypoint handle it
+# Run the app with shiny::runApp
+CMD ["R", "-e", "shiny::runApp('/app', host='0.0.0.0', port=3838)"]
+
