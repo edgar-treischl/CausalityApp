@@ -27,6 +27,7 @@ WORKDIR /srv/shiny-server/causalapp
 # Copy your Shiny app files into the container
 #COPY . /app
 COPY . /srv/shiny-server/causalapp
+COPY shiny-server.conf /etc/shiny-server/shiny-server.conf
 
 # Install renv and restore package environment (if using renv)
 RUN R -e "install.packages(c('renv', 'markdown'), repos = 'https://cloud.r-project.org'); renv::restore(confirm = FALSE)"
