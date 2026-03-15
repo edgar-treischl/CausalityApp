@@ -1,3 +1,6 @@
+# Deploy folder
+deploy/
+
 # History files
 .Rhistory
 .Rapp.history

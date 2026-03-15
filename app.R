@@ -45,7 +45,7 @@ ui <- fixedPage(
     }"
   ),
   # Application title
-  titlePanel("Power Analysis"),
+  #titlePanel("Power Analysis"),
 
   # Sidebar with a slider input for number of bins
   navbarPage("Causality", collapsible = TRUE,
